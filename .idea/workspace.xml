@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6661fe76-bc4c-4e0d-9a6b-6d2934177cf0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/tasks-4-1-tic-tac-toe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task-4-1-tic-tac-toe.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Board.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Square.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../task-4-1-tic-tac-toe" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1zB6IVmQAWD4kT6bLhG2NYjJc42" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -23,6 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -54,6 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1633609053884</updated>
       <workItem from="1633609054934" duration="731000" />
+      <workItem from="1633675102141" duration="1843000" />
+      <workItem from="1633684257820" duration="8773000" />
     </task>
     <servers />
   </component>
@@ -70,5 +78,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
