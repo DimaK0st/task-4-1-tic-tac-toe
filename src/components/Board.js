@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Square from "./Square";
+import calculateWinner from "../functions/calculateWinner";
 
 class Board extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class Board extends Component {
         };
     }
 
-    resetUseState(){
+    resetUseState() {
         this.setState({
             squares: Array(9).fill(null),
             xIsNext: true,
@@ -22,37 +23,17 @@ class Board extends Component {
         });
     }
 
-    calculateWinner(squares) {
-        const lines = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6],
-        ];
-
-        for (let i = 0; i < lines.length; i++) {
-            const [a, b, c] = lines[i];
-            if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-                this.resetUseState()
-                return squares[a];
-            }
-        }
-        if (this.state.step === 9) {
-            this.resetUseState()
-            return false
-        }
-        return null;
-    }
 
     handleClick(i) {
+        console.log(this.state.squares)
         const squares = this.state.squares.slice();
-        if (this.calculateWinner(squares) || squares[i]) {
+        let winner = calculateWinner(this.state.squares, this.state.step);
+        if (winner || squares[i]) {
+            console.log(squares[i])
             return;
         }
+
+
 
         squares[i] = this.state.xIsNext ? 'X' : 'O';
         this.setState({
@@ -60,6 +41,26 @@ class Board extends Component {
             xIsNext: !this.state.xIsNext,
             step: this.state.step + 1
         });
+
+
+        winner = calculateWinner(squares, this.state.step);
+        console.log(winner)
+        if (winner) {
+            console.log("win")
+            this.setState({
+                window: false,
+                windowText: 'Выиграл: ' + winner,
+                windowTextButton: "Начать снова"
+            });
+        } else if (winner === false) {
+            console.log("loss")
+            this.setState({
+                window: false,
+                windowText: 'Ничья ¯\\_(ツ)_/¯',
+                windowTextButton: "Начать снова"
+            });
+        }
+
     }
 
     renderSquare(i) {
@@ -68,51 +69,35 @@ class Board extends Component {
     }
 
     render() {
-        const winner = this.calculateWinner(this.state.squares);
-
-        if (winner) {
-            this.setState({
-                window: false,
-                windowText: 'Выиграл: ' + winner,
-                windowTextButton: "Начать снова"
-            });
-        } else if (winner === false) {
-            this.setState({
-                window: false,
-                windowText: 'Ничья ¯\\_(ツ)_/¯',
-                windowTextButton: "Начать снова"
-            });
-        }
 
         let status = 'Следующий ход: ' + (this.state.xIsNext ? 'X' : 'O');
-
-
         let count = 0
         let countArr = Array(3).fill(null)
-
-        let listSquares = countArr.map(() =>
-            <div key={count} className='board-row'>
-                {countArr.map(() =>
-                    <div key={count}>
-                        {this.renderSquare(count++)}
-                    </div>
-                )}
-            </div>
-        );
 
         return (
 
             <div>
                 <div className="div-window" style={{display: this.state.window ? 'none' : 'block'}}>
                     <div className="div-window-info">
-                        <span>{this.state.windowText }</span>
+                        <span>{this.state.windowText}</span>
                         <br/>
-                        <button onClick={() => (this.setState({window: !this.state.window}))}>{this.state.windowTextButton}</button>
+                        <button
+                            onClick={() => (this.setState({window: !this.state.window}))}>{this.state.windowTextButton}</button>
                     </div>
                 </div>
                 <div className="status">{status}</div>
                 <div className="board">
-                    {listSquares}
+                    {
+                        countArr.map(() =>
+                            <div key={count} className='board-row'>
+                                {countArr.map(() =>
+                                    <div key={count}>
+                                        {this.renderSquare(count++)}
+                                    </div>
+                                )}
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         );
