@@ -46,14 +46,14 @@ class Board extends Component {
         winner = calculateWinner(squares, this.state.step);
         console.log(winner)
         if (winner) {
-            console.log("win")
+            this.resetUseState()
             this.setState({
                 window: false,
                 windowText: 'Выиграл: ' + winner,
                 windowTextButton: "Начать снова"
             });
         } else if (winner === false) {
-            console.log("loss")
+            this.resetUseState()
             this.setState({
                 window: false,
                 windowText: 'Ничья ¯\\_(ツ)_/¯',

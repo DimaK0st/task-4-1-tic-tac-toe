@@ -1,9 +1,31 @@
 import './App.css';
 import Game from "./components/Game";
+import {useDispatch, useSelector} from "react-redux";
+import {setCount} from "./reducers/reposReduser";
 
-function App() {
+const App = ()=>{
+
+    const dispatch = useDispatch()
+    const count = useSelector(state => state.repos.count)
+
+    function onCountClick() {
+        dispatch(setCount(count+1))
+    }
+
     return (
-        <Game/>
+        <div className='app'>
+            <button onClick={()=>onCountClick()}>Count</button>
+            <div>
+                {count}
+            </div>
+        </div>
+
+
+
+
+
+
+        // <Game/>
     );
 }
 
