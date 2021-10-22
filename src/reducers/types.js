@@ -1,0 +1,7 @@
+export const INCREMENT= 'INCREMENT'
+export const DECREMENT= 'DECREMENT'
+export const RESET= 'RESET'
+export const NEXT_STEP= 'NEXT_STEP'
+export const WINNER= 'WINNER'
+export const STANDOFF= 'STANDOFF'
+export const SWITCH_WINDOW= 'SWITCH_WINDOW'
